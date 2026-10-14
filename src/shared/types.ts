@@ -12,6 +12,4 @@ export type LiveLayers = Awaited<ReturnType<typeof spresenter.live.read>>;
 export type Presentation = NonNullable<LiveLayers[number]>;
 
 /** A setlist/culto ativo (forma dinâmica exposta pelo host). */
-export type ActiveSetlist = NonNullable<
-  Awaited<ReturnType<typeof spresenter.events.getActive>>
->;
+export type ActiveSetlist = NonNullable<Awaited<ReturnType<typeof spresenter.events.getActive>>>;

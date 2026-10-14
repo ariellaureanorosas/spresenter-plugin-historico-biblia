@@ -77,6 +77,9 @@ Declaradas em `manifest.json` (o mínimo necessário):
 ```bash
 npm install
 npm run typecheck    # tsc --noEmit
+npm run lint         # ESLint
+npm run test         # Vitest (lógica pura em src/shared)
+npm run format       # Prettier
 npm run dev          # recompila code + ui a cada mudança (hot reload)
 ```
 
@@ -94,17 +97,20 @@ Instale o `.zip` via **Settings → Plugins → Install (.zip/folder)**.
 
 ## Estrutura
 
-| Caminho | Papel |
-|---|---|
-| `manifest.json` | Metadados, permissões e o painel. |
-| `src/code.ts` | Thread de lógica: captura, histórico, mensagens, reabrir. |
-| `src/ui/` | Painel React + Tailwind (pt-BR). |
-| `src/shared/` | Tipos do SDK, contrato de mensagens e utilidades puras. |
-| `src/spresenter.d.ts` | Declara o global `spresenter` para o TypeScript. |
-| `sdk/` | SDK do Spresenter vendorizado (`spresenter-plugin-sdk.tgz`). |
-| `scripts/package.mjs` | Gera o `.zip` de release em `release/`. |
-| `vite.*.config.ts` | Builds separados da lógica (`code`) e da UI (`ui`). |
-| `tailwind.config.js` / `postcss.config.js` | Estilos da UI. |
+| Caminho                                    | Papel                                                        |
+| ------------------------------------------ | ------------------------------------------------------------ |
+| `manifest.json`                            | Metadados, permissões e o painel.                            |
+| `src/code.ts`                              | Thread de lógica: captura, histórico, mensagens, reabrir.    |
+| `src/ui/`                                  | Painel React + Tailwind (pt-BR).                             |
+| `src/shared/`                              | Tipos do SDK, contrato de mensagens e utilidades puras.      |
+| `src/spresenter.d.ts`                      | Declara o global `spresenter` para o TypeScript.             |
+| `sdk/`                                     | SDK do Spresenter vendorizado (`spresenter-plugin-sdk.tgz`). |
+| `scripts/package.mjs`                      | Gera o `.zip` de release em `release/`.                      |
+| `vite.*.config.ts`                         | Builds separados da lógica (`code`) e da UI (`ui`).          |
+| `tailwind.config.js` / `postcss.config.js` | Estilos da UI.                                               |
+| `eslint.config.js` / `.prettierrc`         | Lint (ESLint) e formatação (Prettier).                       |
+| `vitest.config.ts`                         | Testes (Vitest) da lógica pura.                              |
+| `.github/workflows/ci.yml`                 | CI: lint, format, typecheck, test e build.                   |
 
 ## Modo DEBUG
 

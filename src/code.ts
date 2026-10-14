@@ -279,7 +279,6 @@ spresenter.ui.onmessage = async (raw: unknown) => {
   }
 };
 
-// eslint-disable-next-line no-console
 try {
   const label = spresenter.manifest?.name ?? spresenter.manifest?.id ?? 'plugin';
   // eslint-disable-next-line no-console

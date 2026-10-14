@@ -10,7 +10,6 @@ import {
   Row,
   Select,
   Segmented,
-  Stack,
   TextInput,
 } from '@spresenter/plugin-sdk/ui-kit/react';
 import type { DebugSnapshot, HistoryItem, HostToUi } from '../shared/messages';
@@ -164,11 +163,7 @@ export function App() {
       </button>
 
       <div className="grid grid-cols-2 gap-2">
-        <Button
-          variant="primary"
-          className="col-span-2 w-full"
-          onClick={() => reopen(item.id)}
-        >
+        <Button variant="primary" className="col-span-2 w-full" onClick={() => reopen(item.id)}>
           Abrir no ar
         </Button>
         <Button
