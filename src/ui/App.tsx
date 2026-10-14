@@ -122,14 +122,14 @@ export function App() {
 
   const groups = useMemo(() => {
     const map = new Map<string, HistoryItem[]>();
-    for (const item of rest) {
+    for (const item of filtered) {
       const key = item.eventName ?? 'Sem culto';
       const list = map.get(key) ?? [];
       list.push(item);
       map.set(key, list);
     }
     return Array.from(map.entries());
-  }, [rest]);
+  }, [filtered]);
 
   const reopen = (id: string) => postMessage({ type: 'reopen', id });
   const togglePin = (item: HistoryItem) =>
@@ -238,7 +238,7 @@ export function App() {
       ) : null}
 
       <div className="flex flex-1 min-h-0 flex-col gap-3 overflow-y-auto">
-        {pinned.length > 0 && (
+        {grouping === 'recent' && pinned.length > 0 && (
           <div className="flex flex-col gap-2">
             <div className="text-xs font-semibold uppercase tracking-wide text-amber-400">
               Fixados
@@ -247,7 +247,7 @@ export function App() {
           </div>
         )}
 
-        {pinned.length > 0 && rest.length > 0 && (
+        {grouping === 'recent' && pinned.length > 0 && rest.length > 0 && (
           <div className="border-t border-white/15" />
         )}
 
@@ -258,14 +258,29 @@ export function App() {
         ) : grouping === 'recent' ? (
           <ul className="flex flex-col gap-2">{rest.map(renderItem)}</ul>
         ) : (
-          groups.map(([name, list]) => (
-            <div key={name} className="flex flex-col gap-2">
-              <div className="text-xs font-semibold uppercase tracking-wide text-white/40">
-                {name}
+          groups.map(([name, list]) => {
+            const groupPinned = list.filter((item) => item.pinned);
+            const groupRest = list.filter((item) => !item.pinned);
+            return (
+              <div key={name} className="flex flex-col gap-2">
+                <div className="text-center text-xs font-semibold uppercase tracking-wide text-white/40">
+                  {name}
+                </div>
+                {groupPinned.length > 0 && (
+                  <>
+                    <div className="text-center text-xs font-semibold uppercase tracking-wide text-amber-400">
+                      Fixados
+                    </div>
+                    <ul className="flex flex-col gap-2">{groupPinned.map(renderItem)}</ul>
+                  </>
+                )}
+                {groupPinned.length > 0 && groupRest.length > 0 && (
+                  <div className="border-t border-white/15" />
+                )}
+                <ul className="flex flex-col gap-2">{groupRest.map(renderItem)}</ul>
               </div>
-              <ul className="flex flex-col gap-2">{list.map(renderItem)}</ul>
-            </div>
-          ))
+            );
+          })
         )}
       </div>
 
