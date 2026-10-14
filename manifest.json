@@ -1,0 +1,13 @@
+{
+  "id": "com.sonext.historico-biblia",
+  "name": "Histórico da Bíblia",
+  "version": "0.3.51",
+  "description": "Histórico das referências bíblicas apresentadas, para reabrir uma passagem durante o culto sem pesquisar de novo.",
+  "author": "Ariel Rosas",
+  "minAppVersion": "0.3.50",
+  "sdk": "0.5.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui/index.html",
+  "permissions": ["live:read", "live:write", "events:read"],
+  "panels": [{ "id": "main", "title": "Histórico da Bíblia", "icon": "book" }]
+}
