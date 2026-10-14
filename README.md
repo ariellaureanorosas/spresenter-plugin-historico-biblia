@@ -1,5 +1,7 @@
 # Histórico da Bíblia — plugin Spresenter
 
+[![CI](https://github.com/ariellaureanorosas/spresenter-plugin-historico-biblia/actions/workflows/ci.yml/badge.svg)](https://github.com/ariellaureanorosas/spresenter-plugin-historico-biblia/actions/workflows/ci.yml)
+
 Painel com o histórico das referências bíblicas que **foram colocadas no ar**
 (apresentadas) durante o culto, para o operador voltar rápido a uma passagem sem
 pesquisar de novo.
@@ -99,9 +101,17 @@ Instale o `.zip` via **Settings → Plugins → Install (.zip/folder)**.
 | `src/ui/` | Painel React + Tailwind (pt-BR). |
 | `src/shared/` | Tipos do SDK, contrato de mensagens e utilidades puras. |
 | `src/spresenter.d.ts` | Declara o global `spresenter` para o TypeScript. |
+| `sdk/` | SDK do Spresenter vendorizado (`spresenter-plugin-sdk.tgz`). |
+| `scripts/package.mjs` | Gera o `.zip` de release em `release/`. |
+| `vite.*.config.ts` | Builds separados da lógica (`code`) e da UI (`ui`). |
+| `tailwind.config.js` / `postcss.config.js` | Estilos da UI. |
 
 ## Modo DEBUG
 
 O painel tem um botão **Mostrar DEBUG** que exibe a última apresentação crua
 lida (também gravada em `storage['debug:last']`), útil para investigar o formato
 de novos tipos de conteúdo.
+
+## Licença
+
+Distribuído sob a licença **MIT**. Veja [`LICENSE`](LICENSE).

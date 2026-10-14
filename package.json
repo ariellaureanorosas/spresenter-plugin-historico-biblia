@@ -2,6 +2,31 @@
   "name": "com.sonext.historico-biblia",
   "version": "0.3.51",
   "private": true,
+  "description": "Plugin do Spresenter que registra as referências bíblicas apresentadas ao vivo e permite reabrir uma passagem durante o culto.",
+  "author": "Ariel Laureano Rosas <ariellaureanorosas@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ariellaureanorosas/spresenter-plugin-historico-biblia.git"
+  },
+  "homepage": "https://github.com/ariellaureanorosas/spresenter-plugin-historico-biblia#readme",
+  "bugs": {
+    "url": "https://github.com/ariellaureanorosas/spresenter-plugin-historico-biblia/issues"
+  },
+  "keywords": [
+    "spresenter",
+    "spresenter-plugin",
+    "biblia",
+    "historico",
+    "church",
+    "worship",
+    "live",
+    "typescript",
+    "react"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
   "type": "module",
   "scripts": {
     "build:code": "vite build --config vite.code.config.ts",
